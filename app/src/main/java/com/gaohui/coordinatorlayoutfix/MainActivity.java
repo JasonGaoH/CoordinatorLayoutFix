@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private String[] strArray = new String[]{"关注", "推荐", "视频", "直播", "图片", "段子", "精华", "热门"};
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected  synchronized void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -57,13 +57,6 @@ public class MainActivity extends AppCompatActivity {
         fragmentList.add(ChildFragment.newInstance());
         fragmentList.add(ChildFragment.newInstance());
 
-//        parentRecyclerView.setAdapter(new RecyclerViewAdapter(mDataList));
-//        parentRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-//
-//        for (int i =0;i<5;i++) {
-//            mDataList.add("parent: " + i);
-//        }
-//        parentRecyclerView.getAdapter().notifyDataSetChanged();
     }
 
 
