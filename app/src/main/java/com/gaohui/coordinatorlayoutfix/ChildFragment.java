@@ -14,6 +14,8 @@ public class ChildFragment extends Fragment {
 
     private ArrayList<String> mDataList = new ArrayList<String>();
 
+    RecyclerView childRecyclerView;
+
     public ChildFragment() {
         // Required empty public constructor
     }
@@ -39,9 +41,7 @@ public class ChildFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view,Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-       RecyclerView childRecyclerView = view.findViewById(R.id.child_recycler_view);
+        super.onViewCreated(view, savedInstanceState);childRecyclerView = view.findViewById(R.id.child_recycler_view);
        childRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
        childRecyclerView.setAdapter(new RecyclerViewAdapter(mDataList));
 
@@ -67,5 +67,7 @@ public class ChildFragment extends Fragment {
     }
 
 
-
+    public void stopNestedScrolling() {
+        childRecyclerView.stopScroll();
+    }
 }
